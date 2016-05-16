@@ -1,0 +1,11 @@
+{
+	"manifest_version": 2,
+	"name": "HowFar",
+	"version": "1.0",
+	"description": "A simple extension that determines how far you are from an address",
+	//"icons": ...
+	"browser_action": {
+		"default_icon": "images/curved-road.jpg",
+		"default_popup": "popup.html"
+	}
+}
