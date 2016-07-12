@@ -4,8 +4,15 @@
 	"version": "1.0",
 	"description": "A simple extension that determines how far you are from an address",
 	//"icons": ...
+	"permissions": [
+          "contextMenus"
+        ],
 	"browser_action": {
 		"default_icon": "images/curved-road.jpg",
 		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": ["https://code.jquery.com/jquery-3.1.0.js", "eventpage.js", "popup.js"],
+		"persistent": false
 	}
 }

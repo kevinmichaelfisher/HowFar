@@ -1,6 +1,14 @@
+var howFar = {
+	parentItem: 0,
+	originItem: 0
+};
+
 document.onkeypress = function(e) {
 	if (e.keyCode == 13) {
-		var mapDiv = document.getElementById("map");
+		var mapDiv = $( "#debug" );
+		alert(mapDiv);
+		//var mapDiv = document.getElementById("map");
+		var originInput = document.getElementById("origin-input");
 		mapDiv.setAttribute("height", "500");
 		mapDiv.setAttribute("width", "500");
 		var srcAttribute = document.createAttribute("src");
@@ -8,3 +16,7 @@ document.onkeypress = function(e) {
 		mapDiv.setAttributeNode(srcAttribute);
 	}
 }
+
+
+
+//alert("parent item set to " + parentItem + " origin item set to " + originItem);
