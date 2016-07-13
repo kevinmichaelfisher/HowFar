@@ -12,7 +12,9 @@
 		"default_popup": "popup.html"
 	},
 	"background": {
-		"scripts": ["https://code.jquery.com/jquery-3.1.0.js", "eventpage.js", "popup.js"],
+		//"scripts": ["https://code.jquery.com/jquery-3.1.0.js", "eventpage.js", "popup.js"],
+		"scripts": ["eventpage.js", "jquery-3.0.0.min.js"],
+		//"scripts": ["eventpage.js"],
 		"persistent": false
 	}
 }

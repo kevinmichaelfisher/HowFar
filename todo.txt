@@ -1,0 +1,9 @@
+Set origin and destination by selecting text and using the context menu.  I wanted to have it so if you set the origin and/or destination,
+it would auto populate the text fields in the browser action popup the next time you click it.
+
+So basically, when the browser action icon is clicked, check the howFar object in eventpage.js to see if the origin and destination are blank.  
+If origin isn't blank, set the origin input's value to howFar.origin, and the same for the destination.
+
+This would have been easy using browserAction.onClicked.addListener(onBrowserActionClicked) in the event page, but apparently if the browser 
+action has a popup, the onClicked for browserAction won't get called at all, so I have to find a way to detect when the browser action is 
+clicked, then set the origin and destination like I described above.
