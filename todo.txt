@@ -1,9 +1,5 @@
-Set origin and destination by selecting text and using the context menu.  I wanted to have it so if you set the origin and/or destination,
-it would auto populate the text fields in the browser action popup the next time you click it.
+Was looking into sending a message from popup.js to eventpage.js so that when the popup is selected, I can go right to the event page and check to see if and origin and/or destination have been selected.
 
-So basically, when the browser action icon is clicked, check the howFar object in eventpage.js to see if the origin and destination are blank.  
-If origin isn't blank, set the origin input's value to howFar.origin, and the same for the destination.
+The problem comes with the event page not having access to popup.html.  The inputs that I want to populate are in popup.html (“origin-input” and “destination-input”), and eventpage.js doesn’t have any knowledge of popup.html.
 
-This would have been easy using browserAction.onClicked.addListener(onBrowserActionClicked) in the event page, but apparently if the browser 
-action has a popup, the onClicked for browserAction won't get called at all, so I have to find a way to detect when the browser action is 
-clicked, then set the origin and destination like I described above.
+So I left off trying to get a reference to the inputs in popup.js, put it in a message and then send it to eventpage.js.  When debugging, I put a breakpoint in the event handler for the message in the eventpage.js, and the only thing in the message was the onClicked parameter; the reference to the input never got put into the message.

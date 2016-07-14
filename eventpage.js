@@ -22,18 +22,22 @@ function onContextMenuClicked(info, tab) {
 	}
 }
 
-function onBrowserActionClicked() {
-	console.log("onBrowserActionClicked");
-	if (howFar.origin !== "") {
-		console.log("onBrowserActionClicked howFar.origin");
-		$("#origin-input")[0].value = howFar.origin;
-	}
-	else if (howFar.destination !== "") {
-		console.log("onBrowserActionClicked howFar.destination");
-		$("#destination-input")[0].value = howFar.destination;
+function onBrowserActionClicked(message, sender, sendResponse) {
+	if (message.onClicked) {
+		console.log("onBrowserActionClicked");
+		if (howFar.origin !== "") {
+			console.log("onBrowserActionClicked howFar.origin");
+			message.originInput.value = howFar.origin;
+		}
+		/*
+		if (howFar.destination !== "") {
+			console.log("onBrowserActionClicked howFar.destination");
+			$("#destination-input")[0].value = howFar.destination;
+		}
+		*/
 	}
 }
 
 chrome.runtime.onInstalled.addListener(initializeContextMenu);
 chrome.contextMenus.onClicked.addListener(onContextMenuClicked);
-chrome.browserAction.onClicked.addListener(onBrowserActionClicked);
+chrome.runtime.onMessage.addListener(onBrowserActionClicked)
