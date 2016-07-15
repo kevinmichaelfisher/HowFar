@@ -9,14 +9,16 @@
     </style>
     <script src="jquery-3.0.0.min.js"></script>
     <script src="popup.js"></script>
+    <!--
+    <script src="eventpage.js"</script>
+    -->
   </head>
   <body>
-      <div id="debug">asdf</div>
       <div id="input-section">
         Origin: <input type="text" id="origin-input" />
         Destination: <input type="text" id="destination-input" />
       </div>
-      <button type="button">Get Directions</button>
+      <button type="button" id="directionsButton">Get Directions</button>
       <iframe id="map" width="0" height="0" frameborder="0" style="border:0"></iframe>
   </body>
 </html>

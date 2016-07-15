@@ -11,33 +11,27 @@ function initializeContextMenu() {
 
 function onContextMenuClicked(info, tab) {
 	if (info.menuItemId === "setAsOriginContextMenuItem") {
-		console.log("Context menu item clicked: \"setAsOriginContextMenuItem\"");
 		howFar.origin = info.selectionText;
-		console.log("Origin set to: " + howFar.origin);
 	}
 	else if (info.menuItemId === "setAsDestinationContextMenuItem") {
-		console.log("Context menu item clicked: \"setAsDestinationContextMenuItem\"");
 		howFar.destination = info.selectionText
-		console.log("Destination set to: " + howFar.destination);
 	}
 }
 
 function onBrowserActionClicked(message, sender, sendResponse) {
 	if (message.onClicked) {
-		console.log("onBrowserActionClicked");
+		responseMessage = {};
 		if (howFar.origin !== "") {
-			console.log("onBrowserActionClicked howFar.origin");
-			message.originInput.value = howFar.origin;
+			responseMessage.origin = howFar.origin;
 		}
-		/*
 		if (howFar.destination !== "") {
-			console.log("onBrowserActionClicked howFar.destination");
-			$("#destination-input")[0].value = howFar.destination;
+			responseMessage.destination = howFar.destination;
 		}
-		*/
+		sendResponse(responseMessage);
+		//return true;
 	}
 }
 
 chrome.runtime.onInstalled.addListener(initializeContextMenu);
 chrome.contextMenus.onClicked.addListener(onContextMenuClicked);
-chrome.runtime.onMessage.addListener(onBrowserActionClicked)
+chrome.runtime.onMessage.addListener(onBrowserActionClicked);
