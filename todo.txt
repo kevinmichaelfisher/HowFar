@@ -1,5 +1,7 @@
-Was looking into sending a message from popup.js to eventpage.js so that when the popup is selected, I can go right to the event page and check to see if and origin and/or destination have been selected.
+-put in error checking stuff
+ -e.g. if origin and/or destination are blank when user clicks directions button or enter
 
-The problem comes with the event page not having access to popup.html.  The inputs that I want to populate are in popup.html (“origin-input” and “destination-input”), and eventpage.js doesn’t have any knowledge of popup.html.
+-make the popup look nicer
+ -possibly use some jQuery transitions and stuff
 
-So I left off trying to get a reference to the inputs in popup.js, put it in a message and then send it to eventpage.js.  When debugging, I put a breakpoint in the event handler for the message in the eventpage.js, and the only thing in the message was the onClicked parameter; the reference to the input never got put into the message.
+-have ability for user to set origin or destination to their current location or possibly a set of aliases (e.g. their home address alias would be “Home”
