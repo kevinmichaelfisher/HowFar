@@ -3,13 +3,13 @@ var howFar_eventpage = {
 	destination: ""
 };
 
-function initializeContextMenu() {
+var initializeContextMenu = function() {
 	var parentContextMenuItem = chrome.contextMenus.create({"title": "HowFar", "contexts": ["selection"], "id": "parentContextMenuItem"});
 	var setAsOriginContextMenuItem = chrome.contextMenus.create({"title": "Set as origin", "id": "setAsOriginContextMenuItem", "parentId": "parentContextMenuItem", "contexts": ["selection"]});
 	var setAsDestinationContextMenuItem = chrome.contextMenus.create({"title": "Set as destination", "id": "setAsDestinationContextMenuItem", "parentId": "parentContextMenuItem", "contexts": ["selection"]});
 }
 
-function onContextMenuClicked(info, tab) {
+var onContextMenuClicked = function(info, tab) {
 	if (info.menuItemId === "setAsOriginContextMenuItem") {
 		howFar_eventpage.origin = info.selectionText;
 	}
@@ -18,7 +18,7 @@ function onContextMenuClicked(info, tab) {
 	}
 }
 
-function onBrowserActionClicked(message, sender, sendResponse) {
+var onBrowserActionClicked = function(message, sender, sendResponse) {
 	if (message.onClicked) {
 		responseMessage = {};
 		if (howFar_eventpage.origin !== "") {

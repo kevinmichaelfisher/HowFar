@@ -5,3 +5,9 @@
  -possibly use some jQuery transitions and stuff
 
 -have ability for user to set origin or destination to their current location or possibly a set of aliases (e.g. their home address alias would be “Home”
+ -first get lat/long of device
+  https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+  https://developers.google.com/web/fundamentals/native-hardware/user-location/obtain-location?hl=en
+ -then use google geolocation to reverse geolocate and get and address
+  https://developers.google.com/maps/documentation/geocoding/intro
+ -then put that address into the input field
