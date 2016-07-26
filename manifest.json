@@ -5,7 +5,8 @@
 	"description": "Enter an origin and destination address and get a map of directions using Google Maps",
 	//"icons": ...
 	"permissions": [
-          "contextMenus"
+          "contextMenus",
+          "geolocation"
         ],
 	"browser_action": {
 		"default_icon": "images/curved-road.jpg",

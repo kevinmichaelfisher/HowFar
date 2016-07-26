@@ -8,6 +8,7 @@
  -first get lat/long of device
   https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
   https://developers.google.com/web/fundamentals/native-hardware/user-location/obtain-location?hl=en
+***when trying to use getCurrentPosition, for some reason I absolutely cannot get the success callback to get called, only the error callback gets called with the message “timeout expired”
  -then use google geolocation to reverse geolocate and get and address
   https://developers.google.com/maps/documentation/geocoding/intro
  -then put that address into the input field

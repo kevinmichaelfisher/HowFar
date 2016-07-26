@@ -23,6 +23,49 @@ var displayMap = function() {
 	mapDiv.setAttributeNode(srcAttribute);
 }
 
+var getLatLong = function() {
+	navigator.geolocation.getCurrentPosition(
+		function(position) {
+			var latLong = position.coords.latitude + "," + position.coords.longitude;
+			console.log("getLatLong(): " + latLong);
+			return latLong;
+		},
+		function(error) {
+			console.warn('ERROR(' + error.code + '): ' + error.message);
+		},
+		{
+			timeout: 5000
+		}
+	);
+}
+
+
+var setLocationButton_onClickHandler = function() {
+	//var latLong = getLatLong();
+	var latLong;
+	navigator.geolocation.getCurrentPosition(
+		function(position) {
+			//latLong = position.coords.latitude + "," + position.coords.longitude;
+			//console.log("getLatLong(): " + latLong);
+		},
+		function(error) {
+			console.warn('ERROR(' + error.code + '): ' + error.message);
+		},
+		{
+			timeout: 5000,
+			enableHighAccuracy: true
+		}
+	);
+	//console.log("setLocationButton_onClickHandler(): " + latLong);
+
+}
+
+/*
+function setLocationButton_onClickHandler() {
+	var latlong = getLatLong();
+
+}
+*/
 
 $(document).ready(function() {
 	chrome.runtime.sendMessage({onClicked: true}, responseCallback);
@@ -31,8 +74,8 @@ $(document).ready(function() {
 			displayMap();
 	});
 	$("#directionsButton").click(displayMap);
-	//$("#setOriginToCurrentLocationButton").click(setOriginToCurrentLocationButton_onClickHandler);
-	//$("#setDestinationToCurrentLocationButton").click(setDestinationToCurrentLocationButton_onClickHandler);
+	$("#setOriginToCurrentLocationButton").click(setLocationButton_onClickHandler);
+	$("#setDestinationToCurrentLocationButton").click(setLocationButton_onClickHandler);
 });
 
 
